@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import './App.css';
 import Profile from './components/Profile';
+import Missions from './components/Missions';
 
 export default function App() {
   return (
@@ -10,7 +11,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" />
-        <Route path="/missions" />
+        <Route path="/missions" element={<Missions />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
