@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.linksList {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+  align-self: flex-end;
+}
