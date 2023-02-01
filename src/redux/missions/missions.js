@@ -1,3 +1,10 @@
+/*
+eslint no-param-reassign: ["error", { "props": false }]
+--------------
+linter disable reason:
+According to the Redux Toolkit documentation state parameter should be reassigned.
+more info in: https://redux-toolkit.js.org/api/createSlice
+*/
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -19,9 +26,7 @@ const missionsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(readMissions.fulfilled, (state, action) => {
-      const a = state;
-      const b = action;
-      console.log(a, b);
+      state.list = [...action.payload];
     });
   },
 });
