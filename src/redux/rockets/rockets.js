@@ -1,12 +1,14 @@
-const initialState = {}
+// import axios from "axios";
+const initialState = [];
 
-export default (state = initialState, { type, payload }) => {
-  switch (type) {
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case first:
+      return { ...state, ...payload };
 
-  case first:
-    return { ...state, ...payload }
-
-  default:
-    return state
+    default:
+      return state;
   }
-}
+};
+
+export default reducer;
