@@ -1,0 +1,54 @@
+.missionsTable,
+.missionsTable th,
+.missionsTable td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+.missionsTable {
+  width: 80%;
+  margin: auto;
+}
+
+.headerCell {
+  text-align: start;
+  padding: 10px 5px;
+}
+
+.bodyRow:nth-child(odd) {
+  background-color: lightgray;
+}
+
+.bodyCell {
+  padding: 10px 5px;
+}
+
+.status {
+  background-color: #18a2b8;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.tableButton {
+  background-color: transparent;
+  color: red;
+  border: 1px solid red;
+  padding: 10px;
+  margin: auto;
+}
+
+.missionCell {
+  text-align: start;
+  vertical-align: text-top;
+  font-weight: 600;
+}
+
+.descriptionCell {
+  text-align: start;
+  vertical-align: text-top;
+}
+
+.centeredCell {
+  text-align: center;
+}
