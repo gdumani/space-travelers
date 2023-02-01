@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { readMissions } from '../redux/missions';
 import styles from './Missions.module.css';
 
 const Missions = () => {
+  const dispatch = useDispatch();
   const data = [
     {
       id: '1',
@@ -24,6 +27,11 @@ const Missions = () => {
       description: 'This is a description 4',
     },
   ];
+
+  useEffect(() => {
+    dispatch(readMissions());
+  }, []);
+
   return (
     <section>
       <table className={styles.missionsTable}>
