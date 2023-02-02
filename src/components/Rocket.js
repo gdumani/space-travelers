@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Rocket.module.css';
 
 const Rocket = ({ rocket }) => {
   const { rocketImage, rocketName, rocketDescription } = rocket;
   return (
-    <div>
+    <div className={styles.rocketItem}>
       <img src={rocketImage} alt={rocketName} />
-      <h2>{rocketName}</h2>
-      <p>{rocketDescription}</p>
+      <div className={styles.rocketDescription}>
+        <h3>{rocketName}</h3>
+        <p>{rocketDescription}</p>
+      </div>
     </div>
   );
 };
