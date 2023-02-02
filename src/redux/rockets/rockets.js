@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const GET_ROCKETS = 'GET_ROCKETS';
+export const CHANGE_ROCKET_RESERVATION = 'CHANGE_ROCKET_RESERVATION';
 const ROCKET_URL = 'https://api.spacexdata.com/v3/rockets';
 
 export const getRockets = () => async (dispatch) => {
@@ -21,20 +22,29 @@ export const getRockets = () => async (dispatch) => {
   });
 };
 
+export const changeRocketReservation = (id) => ({
+  type: CHANGE_ROCKET_RESERVATION,
+  payload: id,
+});
+
 const initialState = [];
-//   {
-//   rocketId: 1,
-//   rocketName: 'Falcon1',
-//   rocketDescription: 'first stage',
-//   rocketImage: 'https://imgur.com/DaCfMsj.jpg',
-//   rocketStatus: false,
-// }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ROCKETS:
       return action.payload;
-
+    case CHANGE_ROCKET_RESERVATION: {
+      const newState = state.map((rocket) => {
+        if (rocket.rocketId === action.payload) {
+          return {
+            ...rocket,
+            rocketStatus: !rocket.rocketStatus,
+          };
+        }
+        return { ...rocket };
+      });
+      return newState;
+    }
     default:
       return state;
   }
