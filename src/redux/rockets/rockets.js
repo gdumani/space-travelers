@@ -22,6 +22,13 @@ export const getRockets = () => async (dispatch) => {
 };
 
 const initialState = [];
+//   {
+//   rocketId: 1,
+//   rocketName: 'Falcon1',
+//   rocketDescription: 'first stage',
+//   rocketImage: 'https://imgur.com/DaCfMsj.jpg',
+//   rocketStatus: false,
+// }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
