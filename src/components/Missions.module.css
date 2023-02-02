@@ -16,24 +16,41 @@
 }
 
 .bodyRow:nth-child(odd) {
-  background-color: lightgray;
+  background-color: #f2f2f2;
 }
 
 .bodyCell {
   padding: 10px 5px;
 }
 
-.status {
+.activeMember {
   background-color: #18a2b8;
   color: white;
   border-radius: 5px;
   padding: 2px 5px;
 }
 
-.tableButton {
+.inactiveMember {
+  background-color: gray;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.joinButton {
+  font-weight: 600;
+  background-color: transparent;
+  color: gray;
+  border: 2px solid gray;
+  padding: 10px;
+  margin: auto;
+}
+
+.leaveButton {
+  font-weight: 600;
   background-color: transparent;
   color: red;
-  border: 1px solid red;
+  border: 2px solid red;
   padding: 10px;
   margin: auto;
 }
@@ -51,4 +68,12 @@
 
 .centeredCell {
   text-align: center;
+}
+
+.columnLarge {
+  width: 60%;
+}
+
+.columnShort {
+  width: 13%;
 }

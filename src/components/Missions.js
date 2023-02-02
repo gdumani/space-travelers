@@ -22,10 +22,10 @@ const Missions = () => {
       <table className={styles.missionsTable}>
         <thead>
           <tr className={styles.tableHeader}>
-            <th className={styles.headerCell}>Mission</th>
-            <th className={styles.headerCell}>Description</th>
-            <th className={styles.headerCell}>Status</th>
-            <th className={styles.headerCell}> </th>
+            <th className={`${styles.headerCell} ${styles.columnShort}`}>Mission</th>
+            <th className={`${styles.headerCell} ${styles.columnLarge}`}>Description</th>
+            <th className={`${styles.headerCell} ${styles.columnShort}`}>Status</th>
+            <th className={`${styles.headerCell} ${styles.columnShort}`}> </th>
           </tr>
         </thead>
         <tbody>
@@ -38,10 +38,18 @@ const Missions = () => {
                 {mission.description}
               </td>
               <td className={`${styles.bodyCell} ${styles.centeredCell}`}>
-                <span className={styles.status}>Active Member</span>
+                {mission.reserved ? (
+                  <span className={styles.activeMember}>Active Member</span>
+                ) : (
+                  <span className={styles.inactiveMember}>NOT A MEMBER</span>
+                )}
               </td>
               <td className={`${styles.bodyCell} ${styles.centeredCell}`}>
-                <button type="button" className={styles.tableButton} onClick={() => updateReservation(mission.mission_id)}>Leave Mission</button>
+                {mission.reserved ? (
+                  <button type="button" className={styles.leaveButton} onClick={() => updateReservation(mission.mission_id)}>Leave Mission</button>
+                ) : (
+                  <button type="button" className={styles.joinButton} onClick={() => updateReservation(mission.mission_id)}>Join Mission</button>
+                )}
               </td>
             </tr>
           ))}
