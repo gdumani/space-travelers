@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { readMissions } from '../redux/missions/missions';
+import { readMissions, toggleReserve } from '../redux/missions/missions';
 import styles from './Missions.module.css';
 
 const Missions = () => {
   const dispatch = useDispatch();
   const { list } = useSelector((store) => store.missionsReducer);
+
+  const updateReservation = (id) => {
+    dispatch(toggleReserve(id));
+  };
 
   useEffect(() => {
     if (list.length === 0) {
@@ -37,7 +41,7 @@ const Missions = () => {
                 <span className={styles.status}>Active Member</span>
               </td>
               <td className={`${styles.bodyCell} ${styles.centeredCell}`}>
-                <button type="button" className={styles.tableButton}>Leave Mission</button>
+                <button type="button" className={styles.tableButton} onClick={() => updateReservation(mission.mission_id)}>Leave Mission</button>
               </td>
             </tr>
           ))}
