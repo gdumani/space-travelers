@@ -7,3 +7,7 @@ img {
   max-width: 15em;
   object-fit: contain;
 }
+.blueBag {
+  background-color: #1c2cdb ;
+  color: white;
+}
