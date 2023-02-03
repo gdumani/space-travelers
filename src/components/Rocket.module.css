@@ -3,11 +3,13 @@
   padding: 1em 2em;
   column-gap: 1em;
 }
+
 img {
   max-width: 15em;
   object-fit: contain;
 }
+
 .blueBag {
-  background-color: #1c2cdb ;
+  background-color: #1c2cdb;
   color: white;
 }
