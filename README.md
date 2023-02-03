@@ -35,7 +35,7 @@
 **[Space travelers]** is a web application that provides commercial and scientific space travel services. This application will allow users to book rockets and join selected space missions
 ## Screenshot
 
-![screenshot](./app_screenshot.png)
+![screenshot](./Screenshot_SpaceTraveler.png)
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -77,7 +77,7 @@ The app was developed using React js, JavaScript and CSS
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com) Not yet available
+- [Live Demo Link](https://space-travelers-mvcf.onrender.com )
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
