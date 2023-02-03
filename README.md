@@ -30,7 +30,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Book Store React/Redux App ] <a name="about-project"></a>
+# 📖 [Space Travelers] <a name="about-project"></a>
 
 **[Space travelers]** is a web application that provides commercial and scientific space travel services. This application will allow users to book rockets and join selected space missions
 ## Screenshot
