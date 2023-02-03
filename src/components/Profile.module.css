@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   column-gap: 2em;
+  align-items: flex-start;
 }
 
 .profileTable {
