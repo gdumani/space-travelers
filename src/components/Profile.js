@@ -1,23 +1,32 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './Profile.module.css';
 
-const Profile = () => (
-  <div className={styles.wrapper}>
-    <table className={styles.profileTable}>
-      <tbody>
-        <tr>
-          <th><h2>My Missions</h2></th>
-        </tr>
-      </tbody>
-    </table>
-    <table className={styles.profileTable}>
-      <tbody>
-        <tr>
-          <th><h2>My Rockets</h2></th>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-);
-
+const Profile = () => {
+  const rockets = useSelector((state) => state.rocketsReducer);
+  const reserved = rockets.filter((rocket) => rocket.rocketStatus);
+  return (
+    <div className={styles.wrapper}>
+      <table className={styles.profileTable}>
+        <tbody>
+          <tr>
+            <th><h2>My Missions</h2></th>
+          </tr>
+        </tbody>
+      </table>
+      <table className={styles.profileTable}>
+        <tbody>
+          <tr>
+            <th><h2>My Rockets</h2></th>
+          </tr>
+          {reserved.map((rocket) => (
+            <tr key={rocket.rocketId}>
+              <td>{rocket.rocketName}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 export default Profile;
