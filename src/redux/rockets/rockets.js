@@ -1,4 +1,5 @@
-import axios from 'axios';
+// import axios from 'axios';
+const axios = require('axios');
 
 export const GET_ROCKETS = 'GET_ROCKETS';
 export const CHANGE_ROCKET_RESERVATION = 'CHANGE_ROCKET_RESERVATION';
