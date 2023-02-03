@@ -1,51 +1,36 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { readMissions } from '../redux/missions';
+import { useSelector, useDispatch } from 'react-redux';
+import { readMissions, toggleReserve } from '../redux/missions/missions';
 import styles from './Missions.module.css';
 
 const Missions = () => {
   const dispatch = useDispatch();
-  const data = [
-    {
-      id: '1',
-      mission_name: 'Mission 1',
-      description: 'This is a description 1',
-    },
-    {
-      id: '2',
-      mission_name: 'Mission 2',
-      description: 'This is a description 2',
-    },
-    {
-      id: '3',
-      mission_name: 'Mission 3',
-      description: 'This is a description 3',
-    },
-    {
-      id: '4',
-      mission_name: 'Mission 4',
-      description: 'This is a description 4',
-    },
-  ];
+  const { list } = useSelector((store) => store.missionsReducer);
+
+  const updateReservation = (id) => {
+    dispatch(toggleReserve(id));
+  };
 
   useEffect(() => {
-    dispatch(readMissions());
-  }, []);
+    if (list.length === 0) {
+      dispatch(readMissions());
+    }
+  }, [list.length, dispatch]);
 
   return (
     <section>
       <table className={styles.missionsTable}>
         <thead>
           <tr className={styles.tableHeader}>
-            <th className={styles.headerCell}>Mission</th>
-            <th className={styles.headerCell}>Description</th>
-            <th className={styles.headerCell}>Status</th>
-            <th className={styles.headerCell}> </th>
+            <th className={`${styles.headerCell} ${styles.columnShort}`}>Mission</th>
+            <th className={`${styles.headerCell} ${styles.columnLarge}`}>Description</th>
+            <th className={`${styles.headerCell} ${styles.columnShort}`}>Status</th>
+            <th className={`${styles.headerCell} ${styles.columnShort}`}> </th>
           </tr>
         </thead>
         <tbody>
-          {data.map((mission) => (
-            <tr key={mission.id} className={styles.bodyRow}>
+          {list.map((mission) => (
+            <tr key={mission.mission_id} className={styles.bodyRow}>
               <td className={`${styles.bodyCell} ${styles.missionCell}`}>
                 {mission.mission_name}
               </td>
@@ -53,10 +38,18 @@ const Missions = () => {
                 {mission.description}
               </td>
               <td className={`${styles.bodyCell} ${styles.centeredCell}`}>
-                <span className={styles.status}>Active Member</span>
+                {mission.reserved ? (
+                  <span className={styles.activeMember}>Active Member</span>
+                ) : (
+                  <span className={styles.inactiveMember}>NOT A MEMBER</span>
+                )}
               </td>
               <td className={`${styles.bodyCell} ${styles.centeredCell}`}>
-                <button type="button" className={styles.tableButton}>Leave Mission</button>
+                {mission.reserved ? (
+                  <button type="button" className={styles.leaveButton} onClick={() => updateReservation(mission.mission_id)}>Leave Mission</button>
+                ) : (
+                  <button type="button" className={styles.joinButton} onClick={() => updateReservation(mission.mission_id)}>Join Mission</button>
+                )}
               </td>
             </tr>
           ))}
