@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
     "@reduxjs/toolkit": "^1.9.2",
     "axios": "^1.2.6",
     "prop-types": "^15.8.1",
@@ -24,6 +27,12 @@
     "lint:style": "stylelint \"**/*.{css,scss}\" --fix",
     "lint:es": "eslint . --fix"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -36,6 +45,7 @@
       "last 1 safari version"
     ]
   },
+
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/eslint-parser": "^7.19.1",
