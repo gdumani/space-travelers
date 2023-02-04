@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  column-gap: 2em;
+  align-items: flex-start;
+}
+
+.profileTable {
+  justify-content: space-between;
+  border-spacing: 2em 2em;
+  padding: 1em 2em;
+}
