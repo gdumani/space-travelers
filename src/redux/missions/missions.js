@@ -1,9 +1,5 @@
 /*
 eslint no-param-reassign: ["error", { "props": false }]
---------------
-linter disable reason:
-According to the Redux Toolkit documentation state parameter should be reassigned.
-more info in: https://redux-toolkit.js.org/api/createSlice
 */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
